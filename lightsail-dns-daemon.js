@@ -1,4 +1,4 @@
-const config = require('./config.json')
+const config = require(process.env.CONFIG_PATH || './config.json')
 const os = require('os')
 const AWS = require('aws-sdk')
 const Promise = require('bluebird')
