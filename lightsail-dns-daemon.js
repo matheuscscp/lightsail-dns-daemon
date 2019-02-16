@@ -41,8 +41,12 @@ if (process.argv.includes('--daemon')) {
     otherDaemons.forEach(p => process.kill(p.pid, 'SIGTERM'))
   })()
   // redirect logs to file
-  const fileName = `${getTimestamp()}.log`
-  const file = require('fs').createWriteStream(fileName)
+  const fs = require('fs')
+  if (!fs.existsSync('./logs')) {
+    fs.mkdirSync('./logs')
+  }
+  const fileName = `./logs/${getTimestamp()}.log`
+  const file = fs.createWriteStream(fileName)
   process.stdout.write = process.stderr.write = file.write.bind(file)
 }
 
