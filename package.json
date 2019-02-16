@@ -1,0 +1,26 @@
+{
+  "name": "lightsail-dns-daemon",
+  "version": "1.0.0",
+  "description": "A NodeJS daemon to update the NAT private IP address of the host in the AWS Lightsail DNS API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheuscscp/lightsail-dns-daemon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheuscscp/lightsail-dns-daemon/issues"
+  },
+  "homepage": "https://github.com/matheuscscp/lightsail-dns-daemon#readme",
+  "dependencies": {
+    "aws-sdk": "^2.404.0",
+    "bluebird": "^3.5.3",
+    "eslint": "^5.14.0",
+    "ps-list": "^6.1.0",
+    "sanitize-filename": "^1.6.1"
+  }
+}

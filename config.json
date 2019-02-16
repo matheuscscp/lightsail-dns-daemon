@@ -1,0 +1,18 @@
+{
+  "hostname": {
+    "domain": "domain.com",
+    "subdomain": "example.domain.com"
+  },
+  "credentials": {
+    "accessKeyId": "<access key ID here>",
+    "secretAccessKey": "<secret access key here>"
+  },
+  "interface": {
+    "mac": "<network interface mac address here>"
+  },
+  "comment": "configs below usually should stay as they already are",
+  "address": {
+    "family": "IPv4"
+  },
+  "interval": 10
+}
