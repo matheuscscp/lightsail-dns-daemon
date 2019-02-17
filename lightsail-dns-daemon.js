@@ -51,22 +51,18 @@ if (process.argv.includes('--daemon')) {
 
 const getNatIpAddress = async () => {
   const interfaces = os.networkInterfaces()
-  const finalInterfaceName = Object.keys(interfaces).reduce((currentFinalInterfaceName, interfaceName) => {
-    const candidateInterfaceName = interfaces[interfaceName].reduce((currentInterfaceName, addr) => {
-      if (addr.mac === config.interface.mac) {
-        return interfaceName
-      }
-      return currentInterfaceName
-    }, '')
-    if (candidateInterfaceName !== '') {
+  const interfaceName = Object.keys(interfaces).reduce((acc1, candidateInterfaceName) => {
+    const candidateInterface = interfaces[candidateInterfaceName]
+    const interfaceHasCorrectMac = candidateInterface.reduce((acc2, addr) => acc2 || (addr.mac === config.interface.mac), false)
+    if (interfaceHasCorrectMac) {
       return candidateInterfaceName
     }
-    return currentFinalInterfaceName
+    return acc1
   }, '')
-  if (finalInterfaceName === '') {
+  if (interfaceName === '') {
     throw new Error(`interface not found. config.interface.mac=${config.interface.mac}`)
   }
-  const candidates = interfaces[finalInterfaceName].filter(addr =>
+  const candidates = interfaces[interfaceName].filter(addr =>
     addr.family === config.address.family &&
     addr.internal === false
   )
