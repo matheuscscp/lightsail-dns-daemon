@@ -1,4 +1,4 @@
-const config = require(process.env.CONFIG_PATH || './config.json')
+const config = require(process.env.CONFIG_PATH || './myConfig.json')
 const os = require('os')
 const AWS = require('aws-sdk')
 const sanitizeFileName = require('sanitize-filename')
