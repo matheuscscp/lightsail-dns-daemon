@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/matheuscscp/lightsail-dns-daemon#readme",
   "dependencies": {
-    "aws-sdk": "2.404.0",
+    "aws-sdk": "2.814.0",
     "ps-list": "6.1.0",
     "sanitize-filename": "1.6.1"
   }
